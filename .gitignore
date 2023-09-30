@@ -1,3 +1,6 @@
 build/
 depend/
 libspklog.a
+*.log
+test
+test_prog
