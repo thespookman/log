@@ -18,6 +18,7 @@ class Log : public std::ofstream {
 
     Log& operator=(const Log& log);
 
+    std::string get_file_name();
     void write(std::string message, char indent_change);
 
    private:

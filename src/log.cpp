@@ -23,6 +23,7 @@ Log& Log::operator=(const Log& log) {
     return *this;
 }
 
+string Log::get_file_name() { return file_name; }
 using std::endl;
 using std::gmtime;
 using std::strftime;

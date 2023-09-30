@@ -6,6 +6,7 @@ Log global_log;
 
 using std::string;
 void log(string message, char indent_change) {
+    if (global_log.get_file_name().empty()) init("default.log");
     global_log.write(message, indent_change);
 }
 
