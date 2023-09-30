@@ -23,10 +23,9 @@ class Log : public std::ofstream {
    private:
     std::string file_name;
     std::string time_format = "%F %T";
-    short time_length = 20;
     short indent = 0;
 
-    friend void set_time_format(std::string format, size_t length);
+    friend void set_time_format(std::string format);
 };
 
 extern Log global_log;

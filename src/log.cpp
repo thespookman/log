@@ -29,8 +29,8 @@ using std::strftime;
 void Log::write(string message, char indent_change) {
     struct timespec ts;
     timespec_get(&ts, TIME_UTC);
-    char date_time[time_length];
-    strftime(date_time, time_length, time_format.c_str(), gmtime(&ts.tv_sec));
+    char date_time[256];
+    strftime(date_time, 256, time_format.c_str(), gmtime(&ts.tv_sec));
     double nanos = (double)ts.tv_nsec / 1000000000;
     if (indent_change < 0) indent += indent_change;
     *this << date_time << "." << std::format("{:09d}", ts.tv_nsec) << ": "
