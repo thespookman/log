@@ -4,3 +4,4 @@ libspklog.a
 *.log
 test
 test_prog
+**.swp

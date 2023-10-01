@@ -6,12 +6,14 @@ Log global_log;
 
 using std::string;
 void log (string message, char indent_change) {
-    if (global_log.get_file_name ().empty ()) init ("default.log");
+    if (!global_log.is_open ()) init ("default.log");
     global_log.write (message, indent_change);
 }
 
+using std::ofstream;
 void init (string file_name) {
-    global_log = Log (file_name);
+    if (global_log.is_open ()) global_log.close ();
+    global_log.open (file_name, ofstream::app);
     log ("Logger intialised");
 }
 
