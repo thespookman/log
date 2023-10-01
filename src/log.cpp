@@ -18,7 +18,7 @@ Log::~Log () {
 using std::endl;
 using std::gmtime;
 using std::strftime;
-void Log::write (string message, char indent_change) {
+void Log::log (string message, char indent_change) {
     if (!is_open ()) return;
     struct timespec ts;
     timespec_get (&ts, TIME_UTC);
@@ -31,5 +31,7 @@ void Log::write (string message, char indent_change) {
     if (indent_change >= 0) indent += indent_change;
     flush ();
 }
+
+void Log::set_time_format (string format) { time_format = format; }
 }; // namespace log
 }; // namespace spk
