@@ -45,4 +45,4 @@ include $(wildcard $(DEPEND))
 
 .PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR) $(DEP_DIR) $(OUTPUT) $(TEST)
+	rm -rf $(BUILD_DIR) $(DEP_DIR) $(OUTPUT) $(TEST) $(wildcard *.log)
