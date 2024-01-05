@@ -16,7 +16,7 @@ OBJECT = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SOURCE))
 TEST = test_prog
 
 COMPILE_FLAG = -std=c++20 -Wextra
-INCLUDE_FLAG = -Iinclude
+INCLUDE_FLAG = -I.
 DEPEND_FLAG = -MT $@ -MMD -MP -MF 
 COMPILE = g++ $(COMPILE_FLAG) $(INCLUDE_FLAG)
 
