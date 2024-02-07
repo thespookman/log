@@ -19,6 +19,7 @@ COMPILE_FLAG = -std=c++20 -Wextra
 INCLUDE_FLAG = -I.
 DEPEND_FLAG = -MT $@ -MMD -MP -MF 
 COMPILE = g++ $(COMPILE_FLAG) $(INCLUDE_FLAG)
+LINKER = -L. -lspklog -lfmt
 
 .PHONY: all
 all: $(OUTPUT) $(TEST)
@@ -29,7 +30,7 @@ test: $(TEST)
 	./tests/test.sh
 
 $(TEST): tests/test.cpp $(OUTPUT)
-	$(COMPILE) $< -o $@ -L. -lspklog
+	$(COMPILE) $< -o $@ $(LINKER)
 
 $(OUTPUT): $(OBJECT)
 	ar r $@ $^

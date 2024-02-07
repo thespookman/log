@@ -1,7 +1,7 @@
 #include "spk_log.hpp"
 
 #include <ctime>
-#include <format>
+#include <fmt/format.h>
 #include <iostream>
 
 namespace spk {
@@ -45,7 +45,7 @@ Log& Log::log (string message) {
     char date_time[256];
     strftime (date_time, 256, time_format.c_str (), gmtime (&ts.tv_sec));
     double nanos = (double) ts.tv_nsec / 1000000000;
-    *this << date_time << "." << std::format ("{:09d}", ts.tv_nsec) << ": "
+    *this << date_time << "." << fmt::format ("{:09d}", ts.tv_nsec) << ": "
           << string (indent_count * indent_width, ' ') << message << endl;
     flush ();
     return *this;
